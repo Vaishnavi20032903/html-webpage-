@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Data Science</title>
+  <meta charset="UTF-8" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: #f0f8ff;
+    }
+
+    .header {
+      background: url('ds-bg.jpg') center center / cover no-repeat;
+      height: 300px;
+    }
+
+    .section {
+      padding: 40px 30px;
+      text-align: center;
+    }
+
+    .logo-row {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      border-radius: 50%;
+      box-shadow: 0 0 20px #00f0ff, 0 0 30px #00f0ff;
+      background: #f0f8ff;
+      padding: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      justify-items: center;
+    }
+
+    .image-card {
+      position: relative;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgb(0, 191, 255);
+      width: 100%;
+      padding: 10px;
+      animation: zoomOut 0.8s ease forwards, floatEffect 4s ease-in-out infinite;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid black;
+    }
+
+    .popup {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(0);
+      background-color: black;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      box-shadow: 0 0 12px #00f0ff;
+      animation: moveDown 1.2s ease forwards;
+    }
+
+    @keyframes moveDown {
+      0% {
+        top: 20px;
+        opacity: 0;
+      }
+      50% {
+        top: 50%;
+        opacity: 1;
+      }
+      100% {
+        top: 175px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes zoomOut {
+      0% {
+        transform: scale(1.2);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes floatEffect {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @media (max-width: 768px) {
+      .logo {
+        width: 90px;
+        height: 90px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header"></div>
+
+  <div class="section">
+    <!-- Logos in One Row -->
+    <div class="logo-row">
+      <img src="caslogo.png" class="logo" alt="CASAS">
+      <img src="lab1logo.png" class="logo" alt="Lab 1">
+      <img src="digitallogo.png" class="logo" alt="Digital">
+      <img src="virtuallogo.png" class="logo" alt="Virtual">
+    </div>
+
+    <!-- Images with Popup Descriptions -->
+    <div class="image-grid">
+      <!-- CASAS -->
+      <div class="image-card">
+        <img src="casas space.JPG" alt="CASAS Space">
+        <div class="popup">CASAS Space</div>
+      </div>
+      <div class="image-card">
+        <img src="casas.JPG" alt="CASAS Overview">
+        <div class="popup">CASAS Overview</div>
+      </div>
+
+      <!-- Lab 1 & 2 -->
+      <div class="image-card">
+        <img src="dslab1.JPG" alt="DS Lab 1">
+        <div class="popup">DS Lab 1</div>
+      </div>
+      <div class="image-card">
+        <img src="dslab2.JPG" alt="DS Lab 2">
+        <div class="popup">DS Lab 2</div>
+      </div>
+
+      <!-- Digital Classrooms -->
+      <div class="image-card">
+        <img src="dsclassroom.JPG" alt="Digital 1">
+        <div class="popup">Digital Room 1</div>
+      </div>
+      <div class="image-card">
+        <img src="dsclassroom2.JPG" alt="Digital 2">
+        <div class="popup">Digital Room 2</div>
+      </div>
+
+      <!-- Virtual Rooms -->
+      <div class="image-card">
+        <img src="virtual1.JPG" alt="Virtual 1">
+        <div class="popup">Virtual View 1</div>
+      </div>
+      <div class="image-card">
+        <img src="virtual2.JPG" alt="Virtual 2">
+        <div class="popup">Virtual View 2</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

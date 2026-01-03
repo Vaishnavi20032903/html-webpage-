@@ -1,0 +1,277 @@
+<!-- bca.html - Computer Application -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Computer Application</title>
+  <header class="header">
+  <div class="overlay">
+    <h1 class="glow-text" style="font-size: 40px;">Computer Application</h1>
+    <h2 class=" h2text slide">Welcome To </h2>
+    <h2 class="glow-subtext slide-up ">CASAS (Centre for Advanced Studies in Applied Science)</h2>
+    <link rel="stylesheet" href="style.css" /></div>
+</header>
+  <script>
+    function showContent(section, element) {
+      const contents = {
+        about: `The Computer Application course blends computer fundamentals with application development,
+                focusing on software design, databases, web technologies, and mobile app development. Students
+                receive practical exposure to industry-relevant programming languages and frameworks, enabling them
+                to become skilled application developers and IT professionals.`,
+
+        faculty: `Our faculty consists of experienced professionals with expertise in software engineering,
+                  web development, database management, and mobile application technologies.
+                  
+  <div class="faculty-grid">
+    <div class="faculty-card">
+      <img src="deepalimam.jpg" alt="professor 1">
+      <div class="faculty-name">prof.Deepali Jagdale </div>
+    </div>
+    <div class="faculty-card">
+      <img src="pallavimam.jpg" alt="Faculty 2">
+      <div class="faculty-name">Prof. Pallavi Zarekar</div>
+    </div>
+    <div class="faculty-card">
+      <img src="Aartimam.jpg" alt="Faculty 3">
+      <div class="faculty-name">Prof.Arti Zade</div>
+    </div>
+    <div class="faculty-card">
+      <img src="shraddhamam.jpg" alt="Faculty 4">
+      <div class="faculty-name">Prof.Shraddha chemate</div>
+    </div>
+  </div>
+
+`,
+
+      
+        infra: `The department includes computer labs with modern PCs, internet access, and projectors
+                for software demonstrations and presentations.
+      
+</div>
+
+
+    <!-- Images with Popup Descriptions -->
+    <div class="image-grid">
+      <!-- bca -->
+       <div class="image-card">
+        <img src="bcabuilding.JPG" alt=" Overview">
+        <div class="popup"> <strong>Overview</strong></div>
+      </div>
+      <div class="image-card">
+        <img src="bcaspace.JPG" alt="bcaspace.JPG">
+        <div class="popup"><strong>Space</strong></div>
+      </div>
+
+      <!-- Lab 1 , 2 and 3 -->
+      <div class="image-card">
+        <img src="bcalab1.JPG" alt=" Lab 1">
+        <div class="popup"> <strong>Lab 1</strong></div>
+      </div>
+      <div class="image-card">
+        <img src="bcalab2.JPG" alt=" Lab 2">
+        <div class="popup"> <strong>Lab 2</strong></div>
+      </div>
+      <div class="image-card">
+        <img src="bcalab3.JPG" alt="lab 3">
+        <div class="popup"><strong>lab 3</strong></div>
+      </div>
+      <!--matrix hall -->
+
+      <div class="image-card">
+        <img src="matrixhall1.JPG" alt="matrixhall">
+        <div class="popup"><strong>matrixhall</strong></div>
+      </div>
+      <div class="image-card">
+        <img src="matrixhall2.JPG" alt="matrixhall">
+        <div class="popup"><strong>matrixhall</</strong>strong></div>
+      </div>`,
+        research: `Students are encouraged to participate in research in mobile applications, web frameworks,
+                  and emerging technologies such as AI and cloud computing.`
+      };
+  
+      let items = document.querySelectorAll('.sidebar-item');
+      items.forEach(i => i.style.backgroundColor = '');
+      element.style.backgroundColor = '#d1cfcf';
+      element.style.color = 'black';
+
+      let contentBox = document.getElementById('main-content');
+      contentBox.style.opacity = 0;
+      setTimeout(() => {
+        contentBox.innerHTML = `<p class='glow animated-text'>${contents[section]}</p>`;
+        contentBox.style.opacity = 1;
+      }, 200);
+    }
+  </script>
+  <style>
+    @keyframes slideIn {
+      from { transform: translateX(100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    .glow {
+      
+      transition: all 0.4s ease-in-out;
+    }
+    
+    .animated-text {
+      font-size: 16px;
+      line-height: 1.7;
+      animation: slideIn 0.9s ease-in-out forwards;
+    }
+    .sidebar-item {
+      padding: 12px 20px;
+      cursor: pointer;
+      border-top: 1px solid #0f0e0e;
+      background-color: lch(100% 0.01 296.81);
+    }
+
+    .sidebar-item.active {
+      background-color: #94cbf0;
+      color: rgb(240, 234, 234);
+    }
+
+        .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 60px;
+      justify-items: center;
+    }
+
+
+   .image-card {
+      position: relative;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgb(143, 172, 189);
+      width: 100%;
+      padding: 10px;
+      animation: zoomOut 0.8s ease forwards, floatEffect 4s ease-in-out infinite;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid rgb(239, 230, 230);
+    }
+
+
+    .popup {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(0);
+      background-color: rgb(243, 240, 240);
+      color: rgb(18, 3, 3);
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      box-shadow: 0 0 12px;
+      animation: moveDown 2s ease forwards;
+    }
+
+   
+    @keyframes moveDown {
+      0% {
+        top: 20px;
+        opacity: 0;
+      }
+      50% {
+        top: 50%;
+        opacity: 1;
+      }
+      100% {
+        top: 175px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes zoomOut {
+      0% {
+        transform: scale(1.2);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes floatEffect {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+.faculty-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.faculty-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 12px rgba(12, 12, 12, 0.5);
+  padding: 100px;
+  padding-left: 20px;
+  padding-top: 20px;
+  
+  width: 100px;
+  height: 200px;
+  text-align: center;
+  animation: slideInCard 1s ease forwards;
+  opacity: 0;
+}
+
+.faculty-card img {
+  width: 160px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #0f0f0f;
+  margin-bottom: 12px;
+}
+
+.faculty-name {
+  font-weight: bold;
+  font-size: 16px;
+  color: #003344;
+}
+
+@keyframes slideInCard {
+  0% {
+    transform: translateX(60px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+  </style>
+  </style>
+ 
+</head>
+<body style="margin:0; font-family:Georgia, serif; background:#f0f8ff;">
+ 
+  <div style="display: flex; padding: 40px;">
+    <div style="min-width: 250px;">
+      <ul style="list-style: none; padding: 0; margin: 0; border: 1px solid #ccc; box-shadow: 2px 2px 5px rgba(0,0,0,0.1);">
+        <li class="sidebar-item" onclick="showContent('about', this)">About Department</li>
+        <li class="sidebar-item" onclick="showContent('faculty', this)">Faculty</li>
+        <li class="sidebar-item" onclick="showContent('infra', this)">Physical Infrastructure</li>
+        <li class="sidebar-item" onclick="showContent('research', this)">Research & Collaboration</li>
+      </ul>
+    </div>
+    <div style="margin-left: 40px; flex: 1;">
+      <div id="main-content" style="background: #ffffff; border: 1px solid #ccc; padding: 50px; border-radius: 10px; box-shadow: 0 0 18px rgba(0,204,255,0.4); transition: all 0.3s ease-in-out;">
+        <p class="glow animated-text">
+          This course explores the core concepts of cloud platforms such as AWS, Azure, and Google Cloud. Students learn virtualization, serverless computing, DevOps practices, and cloud security.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

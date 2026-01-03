@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Masters in Computer Application</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: #f0f8ff;
+    }
+
+  
+
+    .h2text {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 5px;
+      font-style: italic;
+    }
+
+    .slide {
+      animation: slideIn 1s ease-in-out;
+    }
+
+    .slide-up {
+      animation: slideUp 1s ease-in-out;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .animated-text {
+      font-size: 16px;
+      line-height: 1.7;
+      animation: slideIn 0.9s ease-in-out forwards;
+    }
+
+    .sidebar-item {
+      padding: 12px 20px;
+      cursor: pointer;
+      border-top: 1px solid #ccc;
+      background-color: white;
+    }
+
+    .sidebar-item.active {
+      background-color: #d1cfcf;
+      color: rgb(14, 13, 13);
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 60px;
+      justify-items: center;
+    }
+
+    .image-card {
+      position: relative;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgb(238, 150, 150);
+      width: 100%;
+      padding: 10px;
+      animation: zoomOut 0.8s ease forwards, floatEffect 4s ease-in-out infinite;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid black;
+    }
+
+    .popup {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(0);
+      background-color: rgb(243, 240, 240);
+      color: rgb(18, 3, 3);
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      box-shadow: 0 0 12px;
+      animation: moveDown 2s ease forwards;
+    }
+
+    @keyframes moveDown {
+      0% { top: 20px; opacity: 0; }
+      50% { top: 50%; opacity: 1; }
+      100% { top: 175px; opacity: 1; }
+    }
+
+    @keyframes zoomOut {
+      0% { transform: scale(1.2); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes floatEffect {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+
+  <script>
+    function showContent(section, element) {
+      const contents = {
+        about: `<p class="glow animated-text">The MCA program offers advanced learning in full-stack development, cloud computing, and system architecture. It focuses on bridging theoretical computer science with industrial applications.</p>`,
+
+        faculty: `<p class="glow animated-text">Our MCA faculty includes experts in cloud architecture, system design, database engineering, and backend development with strong academic and industry exposure.</p>`,
+
+        board: `<p class="glow animated-text">Our Board of Studies regularly updates the MCA curriculum to align with modern tech stacks, agile development methods, and enterprise IT needs.</p>`,
+
+        infra: `
+        <p class="glow animated-text">MCA students access smart classrooms, Linux server labs, cloud simulators, and AI-enabled collaborative workspaces.</p>
+        <div class="image-grid">
+          <div class="image-card">
+            <img src="casas space.JPG" alt="Space">
+            <div class="popup"><strong>Space</strong></div>
+          </div>
+          <div class="image-card">
+            <img src="casas.JPG" alt="Overview">
+            <div class="popup"><strong>Overview</strong></div>
+          </div>
+          <div class="image-card">
+            <img src="dslab1.JPG" alt="Lab 1">
+            <div class="popup"><strong>Lab 1</strong></div>
+          </div>
+          <div class="image-card">
+            <img src="dslab2.JPG" alt="DS Lab 2">
+            <div class="popup"><strong>DS Lab 2</strong></div>
+          </div>
+          <div class="image-card">
+            <img src="dsclassroom.JPG" alt="Digital classroom 1">
+            <div class="popup"><strong>Digital classroom 1</strong></div>
+          </div>
+          <div class="image-card">
+            <img src="dsclassroom2.JPG" alt="Digital classroom 2">
+            <div class="popup"><strong>Digital classroom 2</strong></div>
+          </div>
+          <div class="image-card">
+            <img src="virtual1.JPG" alt="Virtual classroom">
+            <div class="popup"><strong>Virtual classroom</strong></div>
+          </div>
+          <div class="image-card">
+            <img src="virtual2.JPG" alt="Virtual classroom">
+            <div class="popup"><strong>Virtual classroom</strong></div>
+          </div>
+        </div>`,
+
+        research: `<p class="glow animated-text">Students are encouraged to publish papers, participate in hackathons, and collaborate with companies for real-world tech solutions and internships.</p>`
+      };
+
+      document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+      element.classList.add('active');
+
+      const contentBox = document.getElementById('main-content');
+      contentBox.style.opacity = 0;
+      setTimeout(() => {
+        contentBox.innerHTML = contents[section];
+        contentBox.style.opacity = 1;
+      }, 200);
+    }
+
+    window.onload = () => {
+      const firstItem = document.querySelector('.sidebar-item');
+      if (firstItem) firstItem.click();
+    };
+  </script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="overlay">
+      <h1 class="glow-text" style="font-size: 28px;">Masters in Computer Application</h1>
+      <h2 class="h2text slide">Welcome To</h2>
+      <h2 class="glow-subtext slide-up">CASAS (Centre for Advanced Studies in Applied Science)</h2>
+    </div>
+  </header>
+
+  <div style="display: flex; padding: 40px;">
+    <!-- Sidebar -->
+    <div style="min-width: 250px;">
+      <ul style="list-style: none; padding: 0; margin: 0; border: 1px solid #fff7f7; box-shadow: 2px 2px 5px rgba(0,0,0,0.1);">
+        <li class="sidebar-item" onclick="showContent('about', this)">About Department</li>
+        <li class="sidebar-item" onclick="showContent('faculty', this)">Faculty</li>
+        <li class="sidebar-item" onclick="showContent('board', this)">Board of Studies</li>
+        <li class="sidebar-item" onclick="showContent('infra', this)">Physical Infrastructure</li>
+        <li class="sidebar-item" onclick="showContent('research', this)">Research & Collaboration</li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div style="margin-left: 40px; flex: 1;">
+      <div id="main-content" style="background: #ffffff; border: 1px solid #fff4f4; padding: 50px; border-radius: 10px; box-shadow: 0 0 18px rgba(0,204,255,0.4); transition: all 0.3s ease-in-out;">
+        <!-- Injected content will appear here -->
+      </div>
+    </div>
+  </div>
+</body>
+</html>

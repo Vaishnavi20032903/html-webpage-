@@ -1,0 +1,203 @@
+<!-- bcss.html - Computer Science -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Computer Science</title>
+  <header class="header">
+  <div class="overlay">
+    <h1 class="glow-text" style="font-size: 40px;">Computer Science</h1>
+    <h2 class=" h2text slide">Welcome To </h2>
+    <h2 class="glow-subtext slide-up ">CASAS (Centre for Advanced Studies in Applied Science)</h2>
+    <link rel="stylesheet" href="style.css" /></div>
+</header>
+  <script>
+    function showContent(section, element) {
+      const contents = {
+        about: `The Computer Science program provides a strong foundation in algorithms, programming, operating systems, and emerging technologies like AI and blockchain. Students work on real-time projects, coding challenges, and research initiatives to develop innovative software solutions.`,
+
+        faculty: `Our faculty includes researchers and professionals in areas such as artificial intelligence, distributed systems, and computer security, offering mentorship and technical guidance.`,
+        infra: `Modern computer labs, GPU clusters, smart classrooms, and access to open-source and proprietary tools provide an immersive, high-performance learning experience
+        </div>
+    <!-- Images with Popup Descriptions -->
+    <div class="image-grid">
+     <div class="image-card">
+        <img src="overview.JPG" alt=" Overview">
+        <div class="popup"><strong> Overview</strong></div>
+      </div>
+    
+      <!-- CASAS -->
+      <div class="image-card">
+        <img src=" bcsspace.JPG" alt=" Space">
+        <div class="popup"><strong> Space</strong></div>
+      </div>
+      <!-- Lab 1 & 2 -->
+      <div class="image-card">
+        <img src="bcslab1.JPG" alt="  Lab 1">
+        <div class="popup"> <strong> Lab 1</strong></div>
+      </div>
+      <div class="image-card">
+        <img src="lab2.JPG" alt="  Lab 2">
+        <div class="popup" ><strong> Lab 2</strong></div>
+      </div>
+      <div class="image-card">
+        <img src="dsclassroom.JPG" alt="Digital 1">
+        <div class="popup"><strong>Digital classroom 1</strong></div>
+      </div>
+      <div class="image-card">
+        <img src="dsclassroom2.JPG" alt="Digital 2"></strong>
+        <div class="popup"><strong>Digital classroom 2</strong></div>
+      </div>`,
+        
+        research: `Students engage in projects like hybrid cloud automation, cloud-native microservices, and performance optimization in cloud ecosystems.`
+      };
+
+      let items = document.querySelectorAll('.sidebar-item');
+      items.forEach(i => i.style.backgroundColor = '');
+      element.style.backgroundColor = '#d1cfcf';
+      element.style.color = 'black';
+
+      let contentBox = document.getElementById('main-content');
+      contentBox.style.opacity = 0;
+      setTimeout(() => {
+        contentBox.innerHTML = `<p class='glow animated-text'>${contents[section]}</p>`;
+        contentBox.style.opacity = 1;
+      }, 200);
+    }
+  </script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: #f0f8ff;
+    }
+    @keyframes slideIn {
+      from { transform: translateX(100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    .glow {
+      
+      transition: all 0.4s ease-in-out;
+    }
+    
+    .animated-text {
+      font-size: 16px;
+      line-height: 1.7;
+      animation: slideIn 0.9s ease-in-out forwards;
+    }
+    .sidebar-item {
+      padding: 12px 20px;
+      cursor: pointer;
+      border-top: 1px solid lab(1.7% 0.26 0.09);
+      background-color: white;
+    }
+
+    .sidebar-item.active {
+      background-color: #94cbf0;
+      color: rgb(11, 10, 10);
+    }
+
+        .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 60px;
+      justify-items: center;
+    }
+
+
+   .image-card {
+      position: relative;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgb(143, 172, 189);
+      width: 100%;
+      padding: 10px;
+      animation: zoomOut 0.8s ease forwards, floatEffect 4s ease-in-out infinite;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid rgb(239, 230, 230);
+    
+    }
+    .image-card:hover img {
+      transform: scale(1.5);
+    }
+
+
+    .popup {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(0);
+      background-color: rgb(243, 240, 240);
+      color: rgb(18, 3, 3);
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      
+      animation: moveDown 2s ease forwards;
+    }
+
+   
+    @keyframes moveDown {
+      0% {
+        top: 20px;
+        opacity: 0;
+      }
+      50% {
+        top: 50%;
+        opacity: 1;
+      }
+      100% {
+        top: 175px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes zoomOut {
+      0% {
+        transform: scale(1.2);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes floatEffect {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+
+  </style>
+  </style>
+ 
+</head>
+<body style="margin:0; font-family:Georgia, serif; background:#f0f8ff;">
+ 
+  <div style="display: flex; padding: 40px;">
+    <div style="min-width: 250px;">
+      <ul style="list-style: none; padding: 0; margin: 0; border: 1px solid #ccc; box-shadow: 2px 2px 5px rgba(0,0,0,0.1);">
+        <li class="sidebar-item" onclick="showContent('about', this)">About Department</li>
+        <li class="sidebar-item" onclick="showContent('faculty', this)">Faculty</li>
+        <li class="sidebar-item" onclick="showContent('board', this)">Board of Studies</li>
+        <li class="sidebar-item" onclick="showContent('infra', this)">Physical Infrastructure</li>
+        <li class="sidebar-item" onclick="showContent('research', this)">Research & Collaboration</li>
+      </ul>
+    </div>
+    <div style="margin-left: 40px; flex: 1;">
+      <div id="main-content" style="background: #ffffff; border: 1px solid #ccc; padding: 50px; border-radius: 10px; box-shadow: 0 0 18px rgba(0,204,255,0.4); transition: all 0.3s ease-in-out;">
+        <p class="glow animated-text">
+          The Computer Science program provides a strong foundation in algorithms, programming, operating systems, and emerging technologies like AI and blockchain. Students work on real-time projects, coding challenges, and research initiatives to develop innovative software solutions.
+
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

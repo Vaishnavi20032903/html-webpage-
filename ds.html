@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Data Science</title>
+  <meta charset="UTF-8" />
+  <header class="header">
+  <div class="overlay">
+    <h1 class="glow-text" style="font-size: 40px;">Data science </h1>
+    <h2 class=" h2text slide">Welcome To </h2>
+    <h2 class="glow-subtext slide-up ">CASAS (Centre for Advanced Studies in Applied Science)</h2>
+    <link rel="stylesheet" href="style.css" /></div>
+</header>
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: #f0f8ff;
+    }
+
+
+    .glow {
+      
+      transition: all 0.4s ease-in-out;
+    }
+
+  
+
+    .animated-text {
+      font-size: 16px;
+      line-height: 1.7;
+      animation: slideIn 0.9s ease-in-out forwards;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    .sidebar-item {
+      padding: 12px 20px;
+      cursor: pointer;
+      border-top: 1px solid lab(1.7% 0.26 0.09);
+      background-color:white;
+    }
+
+    .sidebar-item.active {
+      background-color: #d1cfcf;
+      color: rgb(14, 13, 13);
+    }
+
+        .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 60px;
+      justify-items: center;
+    }
+
+
+   .image-card {
+    
+      position: relative;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgb(238, 150, 150);
+      width: 100%;
+      padding: 10px;
+      animation: zoomOut 0.8s ease forwards, floatEffect 4s ease-in-out infinite;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid black;
+    }
+
+
+    .popup {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(0);
+      background-color: rgb(243, 240, 240);
+      color: rgb(18, 3, 3);
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      box-shadow: 0 0 12px;
+      animation: moveDown 2s ease forwards;
+    }
+
+   
+    @keyframes moveDown {
+      0% {
+        top: 20px;
+        opacity: 0;
+      }
+      50% {
+        top: 50%;
+        opacity: 1;
+      }
+      100% {
+        top: 175px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes zoomOut {
+      0% {
+        transform: scale(1.2);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes floatEffect {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+
+  </style>
+</head>
+  <script>
+    function showContent(section, element) {
+      const contents = {
+        about: `<p class='glow animated-text'>The Data Science program equips students with advanced skills in data analysis, machine learning, and big data technologies. It focuses on real-world problem solving, data visualization, and predictive modeling.</p>`,
+
+        faculty: `<p class='glow animated-text'>Faculty members include statisticians, machine learning engineers, and data scientists with strong academic and industrial backgrounds.</p>`,
+
+        board: `<p class='glow animated-text'>The curriculum is regularly reviewed by experts from the fields of data engineering, AI research, and analytics consulting to ensure relevance.</p>`,
+
+        infra: `
+    <!-- Images with Popup Descriptions -->
+    <div class="image-grid">
+      <!-- CASAS -->
+      <div class="image-card">
+        <img src="casas space.JPG" alt="CASAS Space">
+        <div class="popup"><strong>CASAS Space</strong></div>
+      </div>
+      <div class="image-card">
+        <img src="casas.JPG" alt="CASAS Overview">
+        <div class="popup"><strong>CASAS Overview</strong></div>
+      </div>
+
+      <!-- Lab 1 & 2 -->
+      <div class="image-card">
+        <img src="dslab1.JPG" alt=" Lab 1">
+        <div class="popup"> <strong>Lab 1</strong></div>
+      </div>
+      <div class="image-card">
+        <img src="dslab2.JPG" alt="DS Lab 2">
+        <div class="popup"><strong>DS Lab 2</strong></div>
+      </div>
+
+      <!-- Digital Classrooms -->
+      <div class="image-card">
+        <img src="dsclassroom.JPG" alt="Digital classroom 1">
+        <div class="popup"><strong>Digital classroom 1</strong></div>
+      </div>
+      <div class="image-card">
+        <img src="dsclassroom2.JPG" alt="Digital classroom 2">
+        <div class="popup"><strong>Digital classroom 2</strong></div>
+      </div>
+
+      <!-- Virtual Rooms -->
+      <div class="image-card">
+        <img src="virtual1.JPG" alt="Virtual classroom ">
+        <div class="popup"><strong>Virtual classroom</strong> </div>
+      </div>
+      <div class="image-card">
+        <img src="virtual2.JPG" alt="Virtual  classroom ">
+        <div class="popup"><strong>Virtual  classroom </strong></div>
+      </div>
+    </div>
+  
+        `,
+
+        research: `<p class='glow animated-text'>Projects include applications of AI in health, predictive modeling for industry, and collaborations with data-driven startups.</p>`
+      };
+
+      document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+      element.classList.add('active');
+
+      const contentBox = document.getElementById('main-content');
+      contentBox.style.opacity = 0;
+      setTimeout(() => {
+        contentBox.innerHTML = contents[section];
+        contentBox.style.opacity = 1;
+      }, 200);
+    }
+
+    window.onload = () => {
+      const firstItem = document.querySelector('.sidebar-item');
+      if (firstItem) firstItem.click();
+    };
+  </script>
+</head>
+
+<body>
+ 
+
+  <div style="display: flex; padding: 40px;">
+    <!-- Sidebar -->
+    <div style="min-width: 250px;">
+      <ul style="list-style: none; padding: 0; margin: 0; border: 1px solid #fff7f7; box-shadow: 2px 2px 5px rgba(0,0,0,0.1);">
+        <li class="sidebar-item" onclick="showContent('about', this)">About Department</li>
+        <li class="sidebar-item" onclick="showContent('faculty', this)">Faculty</li>
+        <li class="sidebar-item" onclick="showContent('board', this)">Board of Studies</li>
+        <li class="sidebar-item" onclick="showContent('infra', this)">Physical Infrastructure</li>
+        <li class="sidebar-item" onclick="showContent('research', this)">Research & Collaboration</li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div style="margin-left: 40px; flex: 1;">
+      <div id="main-content" style="background: #ffffff; border: 1px solid #fff4f4; padding: 50px; border-radius: 10px; box-shadow: 0 0 18px rgba(0,204,255,0.4); transition: all 0.3s ease-in-out;">
+        <!-- Loaded by JS -->
+      </div>
+    </div>
+  </div>
+</body>
+</html>

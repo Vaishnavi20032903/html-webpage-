@@ -1,0 +1,210 @@
+<!-- cl.html - Cloud Computing -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cloud Computing</title>
+  <header class="header">
+  <div class="overlay">
+    <h1 class="glow-text" style="font-size: 40px;">Cloud Computing</h1>
+    <h2 class=" h2text slide">Welcome To </h2>
+    <h2 class="glow-subtext slide-up ">CASAS (Centre for Advanced Studies in Applied Science)</h2>
+    <link rel="stylesheet" href="style.css" /></div>
+</header>
+  <script>
+    function showContent(section, element) {
+      const contents = {
+        about: `This course explores the core concepts of cloud platforms such as AWS, Azure, and Google Cloud. Students learn virtualization, serverless computing, DevOps practices, and cloud security.`,
+
+        faculty: `Our instructors include cloud architects and certified experts in cloud infrastructure, DevOps, and network security.`,
+
+        infra: `The department features live cloud labs, virtualized environments, server emulators, and access to cloud vendor ecosystems for hands-on practice.
+        </div>
+
+
+
+    <!-- Images with Popup Descriptions -->
+    <div class="image-grid">
+     <div class="image-card">
+        <img src="casas.JPG" alt="CASAS Overview">
+        <div class="popup">CASAS Overview</div>
+      </div>
+    
+      <!-- CASAS -->
+      <div class="image-card">
+        <img src="casas space.JPG" alt="CASAS Space">
+        <div class="popup">CASAS Space</div>
+      </div>
+      <!-- Lab 1 & 2 -->
+      <div class="image-card">
+        <img src="dslab1.JPG" alt="  Lab 1">
+        <div class="popup">  Lab 1</div>
+      </div>
+      <div class="image-card">
+        <img src="dslab2.JPG" alt="  Lab 2">
+        <div class="popup" > Lab 2</div>
+      </div>
+
+      <!-- Digital Classrooms -->
+      <div class="image-card">
+        <img src="dsclassroom.JPG" alt="Digital 1">
+        <div class="popup">Digital classroom 1</div>
+      </div>
+      <div class="image-card">
+        <img src="dsclassroom2.JPG" alt="Digital 2">
+        <div class="popup">Digital classroom 2</div>
+      </div>
+
+      <!-- Virtual Rooms -->
+      <div class="image-card">
+        <img src="virtual1.JPG" alt="Virtual 1">
+        <div class="popup">Virtual classroom</div>
+      </div>
+      <div class="image-card">
+        <img src="virtual2.JPG" alt="Virtual 2">
+        <div class="popup">Virtual classroom</div>
+      </div>
+    </div>`,
+        
+        research: `Students engage in projects like hybrid cloud automation, cloud-native microservices, and performance optimization in cloud ecosystems.`
+      };
+
+      let items = document.querySelectorAll('.sidebar-item');
+      items.forEach(i => i.style.backgroundColor = '');
+      element.style.backgroundColor = '#d1cfcf';
+      element.style.color = 'black';
+
+      let contentBox = document.getElementById('main-content');
+      contentBox.style.opacity = 0;
+      setTimeout(() => {
+        contentBox.innerHTML = `<p class='glow animated-text'>${contents[section]}</p>`;
+        contentBox.style.opacity = 1;
+      }, 200);
+    }
+  </script>
+  <style>
+    @keyframes slideIn {
+      from { transform: translateX(100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    .glow {
+      
+      transition: all 0.4s ease-in-out;
+    }
+    
+    .animated-text {
+      font-size: 16px;
+      line-height: 1.7;
+      animation: slideIn 0.9s ease-in-out forwards;
+    }
+    .sidebar-item {
+      padding: 12px 20px;
+      cursor: pointer;
+      border-top: 1px solid #0f0e0e;
+      background-color: lch(100% 0.01 296.81);
+    }
+
+    .sidebar-item.active {
+      background-color: #94cbf0;
+      color: rgb(240, 234, 234);
+    }
+
+        .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 60px;
+      justify-items: center;
+    }
+
+
+   .image-card {
+      position: relative;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgb(143, 172, 189);
+      width: 100%;
+      padding: 10px;
+      animation: zoomOut 0.8s ease forwards, floatEffect 4s ease-in-out infinite;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid rgb(239, 230, 230);
+    }
+
+
+    .popup {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(0);
+      background-color: rgb(243, 240, 240);
+      color: rgb(18, 3, 3);
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      
+      animation: moveDown 2s ease forwards;
+    }
+
+   
+    @keyframes moveDown {
+      0% {
+        top: 20px;
+        opacity: 0;
+      }
+      50% {
+        top: 50%;
+        opacity: 1;
+      }
+      100% {
+        top: 175px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes zoomOut {
+      0% {
+        transform: scale(1.2);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes floatEffect {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+
+  </style>
+  </style>
+ 
+</head>
+<body style="margin:0; font-family:Georgia, serif; background:#f0f8ff;">
+ 
+  <div style="display: flex; padding: 40px;">
+    <div style="min-width: 250px;">
+      <ul style="list-style: none; padding: 0; margin: 0; border: 1px solid #ccc; box-shadow: 2px 2px 5px rgba(0,0,0,0.1);">
+        <li class="sidebar-item" onclick="showContent('about', this)">About Department</li>
+        <li class="sidebar-item" onclick="showContent('faculty', this)">Faculty</li>
+        <li class="sidebar-item" onclick="showContent('board', this)">Board of Studies</li>
+        <li class="sidebar-item" onclick="showContent('infra', this)">Physical Infrastructure</li>
+        <li class="sidebar-item" onclick="showContent('research', this)">Research & Collaboration</li>
+      </ul>
+    </div>
+    <div style="margin-left: 40px; flex: 1;">
+      <div id="main-content" style="background: #ffffff; border: 1px solid #ccc; padding: 50px; border-radius: 10px; box-shadow: 0 0 18px rgba(0,204,255,0.4); transition: all 0.3s ease-in-out;">
+        <p class="glow animated-text">
+          This course explores the core concepts of cloud platforms such as AWS, Azure, and Google Cloud. Students learn virtualization, serverless computing, DevOps practices, and cloud security.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

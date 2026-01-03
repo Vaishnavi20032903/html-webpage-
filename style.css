@@ -1,0 +1,250 @@
+
+
+.header {
+  background: url("c.jpg.jpeg") no-repeat center center;
+  background-size: cover;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+  text-align: center;
+}
+
+.header .overlay {
+  background-color: rgba(5, 5, 5, 0.5); /* dark transparent layer */
+  padding: 4rem;
+  border-radius: 12px;
+}
+.header h1 {
+  font-size: 4rem;
+  margin: 0;
+}
+.header h2 {
+  font-size: 2rem;
+  margin-top: 0.9rem;
+}ś
+/* Glowing effect + hover animation */
+.glow-text {
+  transition: all 0.8s ease-in-out;
+  
+  position: relative;
+}
+/* Hover animation */
+.glow-text:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 15px #e36605, 0 0 25px #ff8000, 0 0 35px #ffa500;
+}
+.glow-subtext {
+  color: #eee;
+  text-shadow: 0 0 5px #f27b26, 0 0 10px #FFA500;
+  transition: all 0.2s ease-in-out;  /* for hover */
+}
+
+/* Hover effect */
+.glow-subtext:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 15px #e366f700, 0 0 25px #ffcc00, 0 0 35px #ffa500;
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slideUp 3s ease-out forwards;
+}
+.h2text {
+  color: #eee;
+  text-shadow: 0 0 5px #f27b26, 0 0 10px #f8de1d;
+  transition: all 0.1s ease-in-out;  /* for hover */
+}
+
+/* Hover effect */
+.h2text :hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 15px #eb920c00, 0 0 25px #ff8800, 0 0 35px hsl(60, 94%, 39%);
+}
+@keyframes slide {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide {
+  animation: slide 2s ease-out forwards;
+}
+.courses-section {
+  padding: 60px 20px;
+  background: #0d0d45;
+  text-align: center;
+}
+
+body {
+  
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #0f0f14;
+}
+
+.courses-section {
+  padding: 60px 30px;
+  background: #f8f6f6;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #030f4f; /* dark navy blue */
+  transition: all 0.3s ease-in-out;
+}
+
+.section-title:hover {
+  color: #080b27; /* sky blue */
+  text-shadow: 0 0 5px #5153df, 0 0 10px #5abef9;
+  transform: scale(1.05);
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.row-center {
+  justify-content: center;
+}
+
+.course-card {
+  background: #101010;
+  width: 290px;
+  height:500px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  color: #fff;
+  transform: translateY(40px);
+  opacity: 0;
+  animation: slide-up 1s ease forwards;
+}
+
+.course-card:hover {
+  transform: scale(1.03);
+  
+  box-shadow: 0 0 20px hwb(201 0% 0%), 0 0 30px hsl(199, 100%, 50%);
+}
+
+
+
+.course-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.glow1-text {
+  color: #fff;
+  text-shadow: 0 0 10px #00f0ff, 0 0 20px #00e0ff;
+}
+
+/* Slide animation */
+@keyframes slide-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Button styling */
+.btn-slide {
+  display: inline-block;
+  padding: 10px 20px;
+  background: transparent;
+  color: hsl(194, 100%, 50%);
+  border: 2px solid #00ccff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.btn-slide::after {
+  content: "";
+  position: absolute;
+  left: -100%;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: #00c3ff;
+  transition: left 0.3s ease;
+  z-index: 0;
+}
+
+.btn-slide:hover::after {
+  left: 0;
+}
+
+.btn-slide:hover {
+  color: #000;
+}
+
+.btn-slide span,
+.btn-slide:hover span {
+  position: relative;
+  z-index: 1;
+}
+
+.course-card {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.course-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #55b6eb, 0 0 25px #55b6eb;
+}
+
+
+
+
+
